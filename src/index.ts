@@ -1,16 +1,8 @@
 import express from 'express';
-import { CreateTagControllerFactory } from './application/factories/CreateTagControllerFactory';
-import { CreateUserControllerFactory } from './application/factories/CreateUserControllerFactory';
-import ExpressRoutesAdapter from './infrastructure/adapters/expressjs/express-routes.adapter';
+import routes from './routes/routes';
 
 const app = express();
-
 app.use(express.json())
+app.use(routes)
 
-const createUserController = CreateUserControllerFactory.make();
-const createTagController = CreateTagControllerFactory.make();
-
-app.post('/user', (req, res) => createUserController.handle(req, res))
-app.post('/tag', ExpressRoutesAdapter.adapt(createTagController))
-
-app.listen(3000, () => console.log('online'));
+app.listen(3000, () => console.log('online', 'http://localhost:3000'));

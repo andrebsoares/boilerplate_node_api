@@ -34,7 +34,7 @@ export class CreateTagController implements IController {
       return {
         status: 201,
         payload: {
-          error: id
+          id: id
         }
       }
     } catch (err) {
