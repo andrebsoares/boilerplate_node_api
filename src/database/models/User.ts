@@ -1,14 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../sequelize';
+import { Role, User } from '../../models/User';
 
-interface UserRow {
-  id: number;
-  email: string;
-  password: string;
-  role: string;
-}
-
-export class SequelizeUser extends Model<UserRow, Omit<UserRow, 'id'>> {
+export class SequelizeUser extends Model<User, Omit<User, 'id'>> {
   declare id: number;
   declare email: string;
   declare password: string;
@@ -23,7 +17,8 @@ SequelizeUser.init({
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   password: {
     type: DataTypes.STRING,
@@ -31,7 +26,8 @@ SequelizeUser.init({
   },
   role: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    values: Object.values(Role)
   }
 }, {
   sequelize,

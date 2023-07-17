@@ -1,5 +1,5 @@
-import { ValidationError } from "../../domain/errors/ValidationError";
-import { CreateTagService } from "../../domain/services/CreateTagService";
+import { ValidationError } from "../errors/ValidationError";
+import { CreateTagService } from "../services/TagService";
 import { IController, IRequest, IResponse } from "../adapters/controller.interface";
 
 export class CreateTagController implements IController {

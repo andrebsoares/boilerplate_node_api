@@ -2,14 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../sequelize";
 import { SequelizeTag } from "./Tag";
 import { SequelizeUser } from './User'
-
-interface Post {
-  id: number,
-  title: string,
-  description: string,
-  user_id: number,
-  tag_id: number
-}
+import { Post } from "../../models/Post";
 
 export class SequelizePost extends Model<Post, Omit<Post, 'id'>> {
   declare id: number;

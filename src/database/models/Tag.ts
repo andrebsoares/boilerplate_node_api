@@ -1,13 +1,8 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../sequelize";
+import { Tag } from "../../models/Tag";
 
-interface TagRow {
-  id: number,
-  name: string,
-  type: string
-}
-
-export class SequelizeTag extends Model<TagRow, Omit<TagRow, 'id'>> {
+export class SequelizeTag extends Model<Tag, Omit<Tag, 'id'>> {
   declare id: number;
   declare name: string;
   declare type: string;
